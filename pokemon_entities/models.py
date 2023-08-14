@@ -5,4 +5,8 @@ class Pokemon(models.Model):
     photo = models.ImageField(upload_to='pokemon', blank=True, null=True)
 
     def __str__(self):
-        return '{}'.format(self.title)
+        return self.title
+
+class PokemonEntity(models.Model):
+    Lat = models.FloatField(default=None)
+    Lon = models.FloatField(default=None)
