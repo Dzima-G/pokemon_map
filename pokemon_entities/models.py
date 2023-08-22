@@ -1,7 +1,7 @@
 from django.db import models  # noqa F401
 
 
-class Pokemon(models.Mode):
+class Pokemon(models.Model):
     title_ru = models.CharField(max_length=200, default='Заголовок', verbose_name='Название на русском')
     title_en = models.CharField(max_length=200, blank=True, default='title', verbose_name='Название на английском')
     title_jp = models.CharField(max_length=200, blank=True, default='タイトル', verbose_name='Название на японском')
@@ -27,3 +27,6 @@ class PokemonEntity(models.Model):
     strength = models.IntegerField(blank=True, verbose_name='Сила')
     defence = models.IntegerField(blank=True, verbose_name='Защита')
     stamina = models.IntegerField(blank=True, verbose_name='Выносливость')
+
+    def __str__(self):
+        return f'{self.pokemon.title_ru} - {self.lat}, {self.lon}'
