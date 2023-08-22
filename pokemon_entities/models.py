@@ -1,7 +1,7 @@
 from django.db import models  # noqa F401
 
 
-class Pokemon(models.Model):
+class Pokemon(models.Mode):
     title_ru = models.CharField(max_length=200, default='Заголовок', verbose_name='Название на русском')
     title_en = models.CharField(max_length=200, blank=True, default='title', verbose_name='Название на английском')
     title_jp = models.CharField(max_length=200, blank=True, default='タイトル', verbose_name='Название на японском')
@@ -18,7 +18,8 @@ class Pokemon(models.Model):
 class PokemonEntity(models.Model):
     lat = models.FloatField(verbose_name='Широта')
     lon = models.FloatField(verbose_name='Долгота')
-    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, verbose_name='Название покемона')
+    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, related_name='pokemon_name',
+                                verbose_name='Название покемона')
     appeared_at = models.DateTimeField(verbose_name='Когда появится')
     disappeared_at = models.DateTimeField(verbose_name='Когда исчезнет')
     level = models.IntegerField(blank=True, verbose_name='Уровень')
