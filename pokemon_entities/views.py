@@ -75,8 +75,8 @@ def show_pokemon(request, pokemon_id):
             image_url=request.build_absolute_uri(requested_pokemon.pokemon.image.url)
         )
 
-        if requested_pokemon.pokemon.evolution:
-            from_evolved = requested_pokemon.pokemon.evolution
+        if requested_pokemon.pokemon.previous_evolution:
+            from_evolved = requested_pokemon.pokemon.previous_evolution
             pokemon['previous_evolution'] = {
                 "title_ru": from_evolved.title_ru,
                 "pokemon_id": from_evolved.id,
