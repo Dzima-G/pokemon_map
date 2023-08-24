@@ -4,7 +4,7 @@ from django.db import models  # noqa F401
 class Pokemon(models.Model):
     title_ru = models.CharField(max_length=200, verbose_name='Название на русском')
     title_en = models.CharField(max_length=200, blank=True, verbose_name='Название на английском')
-    title_jp = models.CharField(max_length=200, blank=True,  verbose_name='Название на японском')
+    title_jp = models.CharField(max_length=200, blank=True, verbose_name='Название на японском')
     image = models.ImageField(upload_to='pokemon', null=True, verbose_name='Изображение покемона')
     description = models.TextField(default="Описание", verbose_name='Описание покемона')
     previous_evolution = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL,
